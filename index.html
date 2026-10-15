@@ -235,5 +235,57 @@
   </div>
 </footer>
 
+<!-- GoatCounter analytics: no cookies, no personal data. Own visits excluded via #toggle-goatcounter. -->
+<script>
+window.goatcounter = { no_onload: false };
+(function () {
+  function ev(path, title) {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: path, title: title || path, event: true });
+    }
+  }
+  function slug(t) { return t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href');
+    var where = a.closest('.hero') ? 'hero' : (a.closest('.contact') ? 'contact' : 'body');
+    if (h.indexOf('mailto:') === 0) ev('click-email-' + where, 'Email click (' + where + ')');
+    else if (h.indexOf('tel:') === 0) ev('click-phone-' + where, 'Phone click (' + where + ')');
+    else if (h.indexOf('verify.') > -1) ev('click-verify-register', 'Method competence register click');
+    else if (h.indexOf('linkedin') > -1) ev('click-linkedin', 'LinkedIn click');
+    else if (/^https?:/.test(h)) ev('click-out-' + slug(a.hostname), 'Outbound: ' + a.hostname);
+  });
+  document.addEventListener('copy', function () { ev('copy-text', 'Text copied'); });
+  window.addEventListener('load', function () {
+    if (!('IntersectionObserver' in window)) return;
+    var seen = {};
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          var h2 = en.target.querySelector('h2');
+          var k = h2 ? slug(h2.textContent) : 'section';
+          if (!seen[k]) { seen[k] = 1; ev('read-' + k, 'Section seen: ' + (h2 ? h2.textContent : k)); }
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('main section').forEach(function (s) { io.observe(s); });
+    var marks = [25, 50, 75, 100], hit = {};
+    window.addEventListener('scroll', function () {
+      var d = document.documentElement;
+      var pct = (window.scrollY + window.innerHeight) / d.scrollHeight * 100;
+      marks.forEach(function (m) { if (pct >= m - 1 && !hit[m]) { hit[m] = 1; ev('scroll-' + m, 'Scrolled ' + m + '%'); } });
+    }, { passive: true });
+    var visible = 0, fired = {};
+    setInterval(function () {
+      if (document.visibilityState !== 'visible') return;
+      visible += 5;
+      [30, 60, 120, 300].forEach(function (t) { if (visible >= t && !fired[t]) { fired[t] = 1; ev('time-' + t + 's', 'Engaged ' + t + 's'); } });
+    }, 5000);
+  });
+})();
+</script>
+<script data-goatcounter="https://1outof2.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
