@@ -93,6 +93,15 @@
   .poll .reveal{display:none;margin:.7rem 0 0;padding:.7rem .9rem;background:#fff;border:1px solid #DCE6EE;border-radius:2px;font-size:.95rem;}
   .poll .reveal.show{display:block;}
   .poll .opt-note{font-weight:400;color:var(--muted);font-size:.85rem;}
+  .git{margin:1rem 0 1.4rem;padding:.7rem 1rem;border-left:3px solid #5B81A8;background:#F2F7FA;}
+  .git a{font-weight:600;}
+  .contact-box{margin:1.8rem 0;padding:1.1rem 1.2rem;border:1px solid #DCE6EE;border-top:3px solid var(--navy);border-radius:2px;scroll-margin-top:1rem;}
+  .contact-box h3{margin:0 0 .4rem;font-size:1.05rem;color:var(--navy);}
+  .contact-box p{margin:0 0 .7rem;}
+  .contact-box .btns{display:flex;flex-wrap:wrap;gap:.5rem;}
+  .contact-box .btns a{display:inline-block;padding:.55rem 1rem;border-radius:4px;border:1px solid var(--navy);text-decoration:none;font-weight:500;}
+  .contact-box .btns a.primary{background:var(--navy);color:#fff;}
+  .art img{height:auto;}
 </style>
 </head>
 <body>
@@ -105,7 +114,7 @@
       <a href="/#services">What I do</a>
       <a href="/#about">Who you get</a>
       <a href="/insights/">Insights</a>
-      <a class="cta" href="/#contact">Get in touch</a>
+      <a class="cta" href="#contact" data-pos="header">Get in touch</a>
     </nav>
   </div>
 </header>
@@ -117,7 +126,7 @@
   <p class="sub">A SIL claim has three legs. The third isn&rsquo;t always proven.</p>
   <p class="meta">Mike Ireland &middot; 29 October 2026</p>
 <section>
-<figure class="cover"><img src="sc-cover.png" alt="Cartoon of a wooden three-legged stool tipping over. Two blue legs are intact. The orange third leg, labelled systematic capability, has broken, with the lower piece on the floor. A process operator in a hi-vis vest is falling off, with his hard hat and coffee mug flying." width="1920" height="1080"></figure>
+<figure class="cover"><img width="1920" height="1080" src="sc-cover.png" alt="Cartoon of a wooden three-legged stool tipping over. Two blue legs are intact. The orange third leg, labelled systematic capability, has broken, with the lower piece on the floor. A process operator in a hi-vis vest is falling off, with his hard hat and coffee mug flying." width="1920" height="1080"></figure>
 <aside class="poll" id="poll-pre" aria-label="Reader poll">
 <h3>Quick gut check before you read</h3>
 <p class="lead">I&rsquo;ll ask again at the end, and you can choose a future article.</p>
@@ -137,6 +146,7 @@
 <p>Under IEC 61508, an uncertified device leaves two ways to show SC: the manufacturer’s evidence that it was developed to the standard (Route 1S), or proven in use (Route 2S), with documented operating experience and failure data. The project offered neither.</p>
 <p>I marked the requirement as non-compliant and recommended that SC be demonstrated properly.</p>
 <p>That FSA is the point of this article. Two legs of the SIL were shown; the third was asserted. And it happens more often than it should.</p>
+<p class="git">If this sounds familiar on your project, <a href="#contact" data-pos="opening">get in touch</a>.</p>
 <h2>2. A SIL claim has three legs</h2>
 <p>An FSA has to confirm the SIL in three areas:</p>
 <ol>
@@ -145,13 +155,13 @@
 <li>Systematic safety integrity, shown through the systematic capability (SC) of each element</li>
 </ol>
 <p>IEC 61508-2 7.4.2.2 requires <strong>all</strong> three to be demonstrated. I theorise that because engineers are comfortable with calculations and tables, the quantitative leg, random hardware failure, gets done. Architectural constraints are semi-quantitative but not too difficult: the standard gives us an easy table that can usually be checked against the manufacturer’s data. Systematic safety integrity is the weak leg of the stool (Figure 1), because it needs a qualitative assessment that is both difficult and expensive to demonstrate.</p>
-<figure><img src="sc-fig1-three-legs.png" alt="Table comparing the three legs of a SIL claim. Random hardware failure: quantitative, a PFD or PFH calculation, hours, shown in practice. Architectural constraints: semi-quantitative, a table of HFT and SFF or minimum HFT, hours, shown in practice. Systematic safety integrity: qualitative, records and judgement across the lifecycle, days to weeks, often asserted." loading="lazy"><figcaption><strong>Figure 1.</strong> The three legs of a SIL claim, as required by IEC 61508-2 7.4.2.2.</figcaption></figure>
+<figure><img width="1600" height="889" src="sc-fig1-three-legs.png" alt="Table comparing the three legs of a SIL claim. Random hardware failure: quantitative, a PFD or PFH calculation, hours, shown in practice. Architectural constraints: semi-quantitative, a table of HFT and SFF or minimum HFT, hours, shown in practice. Systematic safety integrity: qualitative, records and judgement across the lifecycle, days to weeks, often asserted." loading="lazy"><figcaption><strong>Figure 1.</strong> The three legs of a SIL claim, as required by IEC 61508-2 7.4.2.2.</figcaption></figure>
 <p class="pull">“If you can’t show the third leg, you haven’t shown the SIL.”</p>
 <h2>3. Systematic faults are real, not a theory</h2>
 <p>Systematic faults are built in rather than worn out. They affect hardware and software, and they recur under the same conditions: same conditions, same failure. Identical redundant channels don’t help, because the fault is now common cause.</p>
 <p>So why worry about them? Three sources show the size of the problem.</p>
 <p><strong>Systems.</strong> HSE’s “Out of Control” analysed 34 control system incidents and traced the primary cause of each to a phase of the lifecycle (Figure 2).</p>
-<figure><img src="sc-fig2-hsg238.png" alt="Pie chart of the primary cause of 34 control system incidents by lifecycle phase: specification 44%, changes after commissioning 20%, design and implementation 15%, operation and maintenance 15%, installation and commissioning 6%. Source HSE HSG238." loading="lazy"><figcaption><strong>Figure 2.</strong> Primary cause of 34 control system incidents, by lifecycle phase. Source: HSE, Out of Control (HSG238), 2nd edition, 2003; chart redrawn from HSE’s figures. Contains public sector information licensed under the Open Government Licence v3.0.</figcaption></figure>
+<figure><img width="1469" height="1078" src="sc-fig2-hsg238.png" alt="Pie chart of the primary cause of 34 control system incidents by lifecycle phase: specification 44%, changes after commissioning 20%, design and implementation 15%, operation and maintenance 15%, installation and commissioning 6%. Source HSE HSG238." loading="lazy"><figcaption><strong>Figure 2.</strong> Primary cause of 34 control system incidents, by lifecycle phase. Source: HSE, Out of Control (HSG238), 2nd edition, 2003; chart redrawn from HSE’s figures. Contains public sector information licensed under the Open Government Licence v3.0.</figcaption></figure>
 <p>HSE concluded that 60% of the failures were built in <em>before the system went into service</em>. The sample is small, but every one of those causes is systematic.</p>
 <p><strong>Hardware.</strong> SINTEF PDS field data from Norwegian offshore safety systems, as reported by Dearden (2015), indicates that random hardware failures account for only 30% to 50% of dangerous undetected failures in field sensors and final elements. Where do the other half come from? We can guess they are mostly systematic.</p>
 <p><strong>Software.</strong> Software faults are systematic by nature: software doesn’t wear out. Lutz analysed the safety-related software faults found in testing on the Voyager and Galileo space probes. About three-quarters began in requirements or in communication between teams; only about a quarter in design and implementation.</p>
@@ -166,7 +176,7 @@
 <p>For Route 1S, IEC 61508-2 lists techniques and measures for each SIL. Measures to <em>avoid</em> systematic faults (Tables B.1–B.5) are applied through the safety lifecycle. Measures to <em>control</em> them (Tables A.15–A.17) are features built into the design, so that the system tolerates residual design faults, environmental stress and operator mistakes. Each entry is graded by SIL, from ‘mandatory’ to ‘not recommended’ (see the extracts in Figure 4, at the end). IEC 61508-3 does the same for software (Annexes A and B). As IEC 61508-2 itself warns, following the tables “does not guarantee by itself the required safety integrity”: judgement is still needed.</p>
 <h2>5. What a proper SC case looks like: a worked example</h2>
 <p>What should the argument for that pressure transmitter have looked like? Assume the design is settled and nobody wants to redesign the SIF. Figure 3 shows the order I’d try.</p>
-<figure><img src="sc-fig3-flowchart.png" alt="Flowchart for showing SC for a device. 1: certified with SC n or higher? If yes, check the certificate, assessment report and safety manual cover your function, device revision and use. 2: can the manufacturer provide the IEC 61508 assessment behind an SC claim for your device revision? If yes, get it and check it. 3: IEC 61511 only: can a prior-use case be built instead of an SC claim? If yes, build it and have it judged independently. If no to all, change the device; if none fits, refer it back to the owner of the risk assessment. Never use PFD margin to make up for missing SC." loading="lazy"><figcaption><strong>Figure 3.</strong> Showing SC for a device: the order to try.</figcaption></figure>
+<figure><img width="1600" height="1257" src="sc-fig3-flowchart.png" alt="Flowchart for showing SC for a device. 1: certified with SC n or higher? If yes, check the certificate, assessment report and safety manual cover your function, device revision and use. 2: can the manufacturer provide the IEC 61508 assessment behind an SC claim for your device revision? If yes, get it and check it. 3: IEC 61511 only: can a prior-use case be built instead of an SC claim? If yes, build it and have it judged independently. If no to all, change the device; if none fits, refer it back to the owner of the risk assessment. Never use PFD margin to make up for missing SC." loading="lazy"><figcaption><strong>Figure 3.</strong> Showing SC for a device: the order to try.</figcaption></figure>
 <p><strong>Start with the manufacturer.</strong> Ask whether the transmitter was developed under an assessed functional safety management system, and whether they can provide the IEC 61508 assessment behind an SC claim for your exact device revision. A bare statement isn’t enough: the assessment has to show how SC was judged, by someone suitably independent. If they can, that is by far the cheapest fix.</p>
 <p><strong>If not, does IEC 61511 apply? </strong> Under IEC 61508 alone, the end user’s route is proven in use (Route 2S), which is statistical and rarely practical. Under IEC 61511, the end user has a further option: a prior-use case, which justifies the device from operating experience instead of an SC claim. That means fixing the exact model and device revision, defining how it is used, gathering evidence from the same model in similar service (numbers installed, years in service, proof test results, and every failure identified as random or systematic), and assessing the manufacturer’s quality and configuration management. The ISO 9001 certificate belongs here, but as one input, not the conclusion. A competent and independent assessor then judges whether the evidence is enough.</p>
 <p>In practice the evidence may not exist, or the manufacturer may be unwilling to provide it. To sell one or two transmitters, weeks of administrative effort may not be worth their while.</p>
@@ -198,6 +208,7 @@
 <li><strong>Plan independent review</strong> early enough for findings to avoid significant rework.</li>
 <li><strong>Build real prior-use cases for legacy systems</strong> (or, under IEC 61508, proven-in-use cases) from site failure records; or replace the devices that can’t be justified.</li>
 </ul>
+<p class="git">Need an SC claim checked before it reaches the assessor? I review SC cases and device evidence independently. <a href="#contact" data-pos="section-8">Get in touch</a>.</p>
 <h2>9. No third leg, no SIL</h2>
 <p>A SIL claim stands on three legs. Two are shown by calculation and a table. The third needs evidence and judgement, so it’s the one that sometimes gets skipped. Yet systematic faults are where many real failures start.</p>
 <p><strong>If you can’t show the third leg, you haven’t shown the SIL.</strong></p>
@@ -212,12 +223,21 @@
 <div class="q"><p>Where do you sit?</p><div class="opts" role="group"><button type="button" data-g="role" data-v="op" aria-pressed="false">Operator or end user</button><button type="button" data-g="role" data-v="epc" aria-pressed="false">Engineering contractor or integrator</button><button type="button" data-g="role" data-v="oem" aria-pressed="false">Device manufacturer or supplier</button><button type="button" data-g="role" data-v="assessor" aria-pressed="false">Assessor, consultant or regulator</button><button type="button" data-g="role" data-v="other" aria-pressed="false">Student or other</button></div></div>
 <div class="q"><p>Which sector, mostly? <span class="opt-note">(optional)</span></p><div class="opts" role="group"><button type="button" data-g="sector" data-v="process" aria-pressed="false">Process and COMAH</button><button type="button" data-g="sector" data-v="nuclear" aria-pressed="false">Nuclear</button><button type="button" data-g="sector" data-v="defence" aria-pressed="false">Defence</button><button type="button" data-g="sector" data-v="other" aria-pressed="false">Other (energy, rail, machinery&hellip;)</button></div></div>
 <div class="q"><p>Next up is application programs on safety PLCs. What should come after that?</p><div class="opts" role="group"><button type="button" data-g="next" data-v="dvs" aria-pressed="false">Device vs system SC assessments</button><button type="button" data-g="next" data-v="fsa" aria-pressed="false">FSAs: getting the most from them</button><button type="button" data-g="next" data-v="srs" aria-pressed="false">The SRS and its role in the lifecycle</button><button type="button" data-g="next" data-v="fsmp" aria-pressed="false">The FSMP</button><button type="button" data-g="next" data-v="else" aria-pressed="false">Something else</button></div></div>
-<p class="reveal" id="end-thanks">Thank you. Results will feature in the next article.<span id="else-note" style="display:none"> Tell me your idea in the comments on LinkedIn.</span> If an SC claim on your project needs a second look, <a href="https://www.1outof2.co.uk/#contact">get in touch</a>.</p>
+<p class="reveal" id="end-thanks">Thank you. Results will feature in the next article.<span id="else-note" style="display:none"> Tell me your idea in the comments on LinkedIn.</span> If an SC claim on your project needs a second look, <a href="#contact" data-pos="poll">get in touch</a>.</p>
 </aside>
 <p class="bio"><em>Mike Ireland is an independent functional safety assessor and safety-PLC software verifier at 1oo2 Limited, and a member of BSI GEL/65/1 and the IEC 61511 application programming team. More at </em><a href="https://www.1outof2.co.uk" target="_blank" rel="noopener">www.1outof2.co.uk</a><em>.</em></p>
+<div class="contact-box contact" id="contact">
+<h3>Get in touch</h3>
+<p>Questions about an SC claim, an FSA or this article? Email or call me directly.</p>
+<div class="btns">
+<a class="primary" href="mailto:mike.ireland@1outof2.co.uk?subject=SC%20article">Email Mike</a>
+<a href="tel:+447514297912">Call 07514 297912</a>
+<a href="https://linkedin.1outof2.co.uk" target="_blank" rel="noopener">Message on LinkedIn</a>
+</div>
+</div>
 <h2>Appendix: what the IEC 61508 tables look like</h2>
 <p>Two of the techniques and measures tables referred to in section 4, as examples of how each entry is graded by SIL.</p>
-<figure><img src="sc-fig4-iec61508-tables.png" alt="Extracts from IEC 61508-2 Tables B.1 and A.15 showing techniques and measures graded M, HR, R or no recommendation for SIL 1 to SIL 3." loading="lazy"><figcaption><strong>Figure 4.</strong> Extracts from IEC 61508-2:2010, Tables B.1 and A.15. © IEC. M = mandatory, HR = highly recommended, R = recommended, – = no recommendation. Effectiveness requirements (Tables B.6 and A.18) omitted.</figcaption></figure>
+<figure><img width="705" height="585" src="sc-fig4-iec61508-tables.png" alt="Extracts from IEC 61508-2 Tables B.1 and A.15 showing techniques and measures graded M, HR, R or no recommendation for SIL 1 to SIL 3." loading="lazy"><figcaption><strong>Figure 4.</strong> Extracts from IEC 61508-2:2010, Tables B.1 and A.15. © IEC. M = mandatory, HR = highly recommended, R = recommended, – = no recommendation. Effectiveness requirements (Tables B.6 and A.18) omitted.</figcaption></figure>
 <h2>References</h2>
 <ol>
 <li>HSE, Out of Control (HSG238), 2nd ed., 2003. <a href="https://www.hse.gov.uk/pubns/books/hsg238.htm" target="_blank" rel="noopener">www.hse.gov.uk/pubns/books/hsg238.htm</a></li>
@@ -314,6 +334,14 @@ window.goatcounter = { no_onload: false };
     });
   });
 })();
+</script>
+<script>
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href="#contact"]');
+  if (!a || !window.goatcounter || !window.goatcounter.count) return;
+  var pos = a.getAttribute('data-pos') || 'other';
+  window.goatcounter.count({ path: 'click-contact-' + pos, title: 'Get in touch click (' + pos + ')', event: true });
+});
 </script>
 <script data-goatcounter="https://1outof2.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
