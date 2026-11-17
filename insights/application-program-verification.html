@@ -221,8 +221,7 @@
 <div class="q"><p>Will this change anything you do?</p><div class="opts" role="group"><button type="button" data-g="intent" data-v="srs" aria-pressed="false">I’ll ask for a software SRS</button><button type="button" data-g="intent" data-v="docs" aria-pressed="false">I’ll ask for the program’s lifecycle documents</button><button type="button" data-g="intent" data-v="confirmed" aria-pressed="false">It confirmed what I already do</button><button type="button" data-g="intent" data-v="nothing" aria-pressed="false">Nothing for now</button></div></div>
 <div class="q"><p>Where do you sit?</p><div class="opts" role="group"><button type="button" data-g="role" data-v="op" aria-pressed="false">Operator or end user</button><button type="button" data-g="role" data-v="epc" aria-pressed="false">Engineering contractor or integrator</button><button type="button" data-g="role" data-v="oem" aria-pressed="false">Device manufacturer or supplier</button><button type="button" data-g="role" data-v="assessor" aria-pressed="false">Assessor, consultant or regulator</button><button type="button" data-g="role" data-v="other" aria-pressed="false">Student or other</button></div></div>
 <div class="q"><p>Which sector, mostly? <span class="opt-note">(optional)</span></p><div class="opts" role="group"><button type="button" data-g="sector" data-v="process" aria-pressed="false">Process and COMAH</button><button type="button" data-g="sector" data-v="nuclear" aria-pressed="false">Nuclear</button><button type="button" data-g="sector" data-v="defence" aria-pressed="false">Defence</button><button type="button" data-g="sector" data-v="other" aria-pressed="false">Other (energy, rail, machinery&hellip;)</button></div></div>
-<div class="q"><p>What should the next article cover?</p><div class="opts" role="group"><button type="button" data-g="next" data-v="dvs" aria-pressed="false">Device vs system SC assessments</button><button type="button" data-g="next" data-v="fsa" aria-pressed="false">FSAs: getting the most from them</button><button type="button" data-g="next" data-v="srs" aria-pressed="false">The SRS and its role in the lifecycle</button><button type="button" data-g="next" data-v="fsmp" aria-pressed="false">The FSMP</button><button type="button" data-g="next" data-v="else" aria-pressed="false">Something else</button></div></div>
-<p class="reveal" id="end-thanks">Thank you.<span id="else-note" style="display:none"> Tell me your idea in the comments on LinkedIn.</span> If you’d like an independent review of a safety PLC program, <a href="#contact" data-pos="poll">get in touch</a>.</p>
+<p class="reveal" id="end-thanks">Thank you. If you’d like an independent review of a safety PLC program, <a href="#contact" data-pos="poll">get in touch</a>.</p>
 </aside>
 <p class="bio"><em>Mike Ireland CEng is director of 1oo2 Limited, an independent functional safety consultancy. TÜV SÜD Functional Safety Professional (IEC 61508 and IEC 61511), and a UK member of the IEC 61511 maintenance team. More at </em><a href="https://www.1outof2.co.uk" target="_blank" rel="noopener">www.1outof2.co.uk</a><em>.</em></p>
 <div class="contact-box contact" id="contact">
@@ -318,7 +317,7 @@ window.goatcounter = { no_onload: false };
       else if (g === 'post') { ev('poll-ap-shift-' + pre + '-' + v, 'AP poll shift: ' + pre + ' to ' + v); document.getElementById('take').classList.add('show'); }
       else {
         ev('poll-ap-' + g + '-' + v, 'AP poll ' + g + ': ' + v);
-        if (g === 'next') { document.getElementById('end-thanks').classList.add('show'); if (v === 'else') document.getElementById('else-note').style.display = 'inline'; }
+        if (g === 'role' || g === 'sector') { document.getElementById('end-thanks').classList.add('show'); }
       }
     });
   });
